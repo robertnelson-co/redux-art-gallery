@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const dataSlice = createSlice({
-    name: 'data'm,
+    name: 'data',
     initialState,
     reducers: {
         setData: (state, action) => {

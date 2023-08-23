@@ -1,8 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { clearData, fetchData, incrementId, decrementId, inputId } from './features/dataSlice';
-import Gallery from './gallery';
-import ButtonBar from './buttonbar';
 import './App.css';
 
 function App(props) {
@@ -16,7 +14,7 @@ function App(props) {
       return <p>There's supposed to be something here...</p>
     }
   }
-}
+
 
 useEffect(() => {
   dispatch(fetchData())
@@ -39,6 +37,11 @@ return (
     </div>
   </div>
 )
+  }
+
+  const mapStateToProps = (state, ownProps) => ({ objectId: state.data.objectId })
+
+  export default connect(mapStateToProps)(App);
 
 //function App() {
 //  let [artId, setArtId] = useState(12045)
